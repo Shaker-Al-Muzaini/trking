@@ -14,10 +14,10 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard,contact, about,contactMessages } from '@/routes';
+import { dashboard,contact, about,property } from '@/routes';
 
 import type { NavItem } from '@/types';
-
+const contactMessages = () => '/contact/messages';
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
@@ -30,7 +30,7 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
-        title: 'ContactMessages',
+        title: 'contactMessages',
         href: contactMessages(),
         icon: LayoutGrid,
     },
@@ -42,6 +42,11 @@ const mainNavItems: NavItem[] = [
     {
         title: 'about',
         href: about(),
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Property',
+        href: property(),
         icon: LayoutGrid,
     },
 ];
