@@ -18,20 +18,12 @@ import { dashboard,contact, about,property } from '@/routes';
 
 import type { NavItem } from '@/types';
 const contactMessages = () => '/contact/messages';
+const book = () => '/books';
+const categories = () => '/categories';
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
         href: dashboard(),
-        icon: LayoutGrid,
-    },
-    {
-        title: 'contact',
-        href: contact(),
-        icon: LayoutGrid,
-    },
-    {
-        title: 'contactMessages',
-        href: contactMessages(),
         icon: LayoutGrid,
     },
     {
@@ -40,6 +32,12 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
+        title: 'contactMessages',
+        href: contactMessages(),
+        icon: LayoutGrid,
+    },
+
+    {
         title: 'about',
         href: about(),
         icon: LayoutGrid,
@@ -47,6 +45,16 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Property',
         href: property(),
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Categories',
+        href: categories(),
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Book',
+        href: book(),
         icon: LayoutGrid,
     },
 ];

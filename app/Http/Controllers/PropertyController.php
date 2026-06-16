@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PropertyRequest;
 use App\Models\Property;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-class PropertyController extends Controller
-{
 
+class PropertyController
+{
     public function index()
     {
         $properties = Property::latest()->get();
 
         return inertia('Property', [
-            'properties' => $properties
+            'properties' => $properties,
         ]);
     }
 
@@ -35,15 +32,15 @@ class PropertyController extends Controller
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $filename = time().'_'.uniqid().'.'.$file->getClientOriginalExtension();
 
             $destinationPath = public_path('uploads/properties');
-            if (!file_exists($destinationPath)) {
+            if (! file_exists($destinationPath)) {
                 mkdir($destinationPath, 0755, true);
             }
 
             $file->move($destinationPath, $filename);
-            $data['image'] = '/uploads/properties/' . $filename;
+            $data['image'] = '/uploads/properties/'.$filename;
         }
 
         Property::create($data);
@@ -73,21 +70,19 @@ class PropertyController extends Controller
             }
 
             $file = $request->file('image');
-            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $filename = time().'_'.uniqid().'.'.$file->getClientOriginalExtension();
 
             $destinationPath = public_path('uploads/properties');
-            if (!file_exists($destinationPath)) {
+            if (! file_exists($destinationPath)) {
                 mkdir($destinationPath, 0755, true);
             }
 
             $file->move($destinationPath, $filename);
-            $data['image'] = '/uploads/properties/' . $filename;
+            $data['image'] = '/uploads/properties/'.$filename;
         }
 
         $property->update($data);
 
         return redirect()->back();
     }
-
-
 }

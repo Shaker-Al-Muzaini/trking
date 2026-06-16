@@ -159,7 +159,6 @@ import { ref, onMounted, watch } from 'vue';
 import { useForm, router } from '@inertiajs/vue3';
 import Swal from 'sweetalert2';
 
-// استقبال العقارات القادمة من السيرفر عبر Laravel Inertia
 const props = defineProps({
     properties: Array
 });
